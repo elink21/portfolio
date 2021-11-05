@@ -14,12 +14,17 @@ export default function Model({ ...props }) {
   const { nodes, materials, animations } = useGLTF("/scene.gltf");
   const { actions } = useAnimations(animations, group);
 
+  useEffect(() => {
+    console.log(actions);
+    actions["mixamo.com"].play();
+  });
+
   
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
-          <primitive object={nodes._rootJoint} />
+          <primitive object={nodes._rootJoint} scale={0.0003} />
           <skinnedMesh
             geometry={nodes["BitBit_-_Bot_palette_0"].geometry}
             material={materials.palette}
