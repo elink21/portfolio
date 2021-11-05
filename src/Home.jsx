@@ -1,20 +1,16 @@
-import { Button, ButtonGroup } from "@chakra-ui/react";
-import styled from "styled-components";
-
-const UI = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  text-align: center;
-`;
-function Home() {
+import React, { Suspense } from "react";
+import { Canvas } from "react-three-fiber";
+import { OrbitControls } from "@react-three/drei";
+import Cassette from "./Cassette"
+export default function App() {
   return (
-    <UI>
-      <Button colorScheme="pink">U can click me now! 🏃🏻‍♀️</Button>
-    </UI>
+    <Canvas>
+      <OrbitControls />
+      <ambientLight intensity={0.6} />
+      <directionalLight intensity={0.5} />
+      <Suspense fallback={null}>
+        <Cassette />
+      </Suspense>
+    </Canvas>
   );
 }
-
-export default Home;
