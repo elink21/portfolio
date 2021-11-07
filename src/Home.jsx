@@ -6,12 +6,18 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Environment, OrbitControls, MapControls } from "@react-three/drei";
 import styled from "styled-components";
 import RobotAnimation from "./RobotAnimation";
-import { Heading } from "@chakra-ui/react";
+import { Heading, HStack } from "@chakra-ui/react";
 import MenuBar from "./MenuBar";
 import { Icon } from "@chakra-ui/react";
 import { BsCodeSquare } from "react-icons/bs";
 import { BsController } from "react-icons/bs";
-import { FaAws } from "react-icons/fa";
+import {
+  FaAws,
+  FaFacebook,
+  FaWhatsapp,
+  FaGithub,
+  FaLinkedin,
+} from "react-icons/fa";
 import { Tooltip } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -24,6 +30,13 @@ const Model = () => {
     </>
   );
 };
+
+const SocialDiv = styled.div`
+  text-align: center;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+`;
 const HomeUIGrid = styled.div`
   display: grid;
   width: 100vw;
@@ -35,17 +48,27 @@ const HomeUIGrid = styled.div`
 `;
 
 const PresentationCard = styled.div`
-  padding: 20px;
+  padding: 0px;
   display: grid;
+  max-height: 100%;
   text-align: center;
   align-items: center;
+  justify-items: center;
+  grid-template-rows: 7fr 1fr;
 `;
 
 const IconContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
+  align-items: center;
+
   gap: 2px;
+`;
+
+const NameDiv = styled.div`
+  display: grid;
+  align-items: center;
 `;
 
 export default function App() {
@@ -54,7 +77,7 @@ export default function App() {
       <MenuBar></MenuBar>
 
       <PresentationCard>
-        <div>
+        <NameDiv>
           <motion.div
             animate={{ y: 0, opacity: 1 }}
             initial={{ opacity: 0, y: 30 }}
@@ -84,13 +107,66 @@ export default function App() {
           <motion.div
             animate={{ opacity: 1, scale: 1 }}
             initial={{ opacity: 0, scale: 0.5 }}
-            transition={{ ease: "anticipate" , delay:1, duration:1}}
+            transition={{ ease: "anticipate", delay: 1, duration: 1 }}
           >
-            <Button backgroundColor={"primary"}>
-              Give a look to my projects!
-            </Button>
+            {" "}
+            <br /> <br />
+            <motion.div
+              animate={{ x: 20 }}
+              transition={{
+                duration: 0.18,
+                ease: "easeInOut",
+                stiffness: 2,
+                repeatType: "mirror",
+                repeat: 5,
+                delay: 3,
+              }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <Button size={"lg"} colorScheme={"teal"}>
+                Give a look to my projects!
+              </Button>
+            </motion.div>
           </motion.div>
-        </div>
+        </NameDiv>
+        <SocialDiv>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2 }}
+          >
+            
+            <Heading size={"xs"}>Reach me out via </Heading> <br />
+            <HStack>
+              <Button
+                size={"sm"}
+                colorScheme="github"
+                color={"white"}
+                variant={"outline"}
+                leftIcon={<FaGithub />}
+              >
+                GitHub
+              </Button>
+              <Button
+                size={"sm"}
+                colorScheme="teal"
+                variant={"outline"}
+                leftIcon={<FaLinkedin />}
+              >
+                Linkedin
+              </Button>
+
+              <Button
+                size={"sm"}
+                colorScheme="blue"
+                variant={"outline"}
+                leftIcon={<FaFacebook />}
+              >
+                Facebook
+              </Button>
+            </HStack>
+          </motion.div>
+        </SocialDiv>
       </PresentationCard>
 
       <Canvas id="canvas">

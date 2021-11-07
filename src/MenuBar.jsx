@@ -33,7 +33,7 @@ export default function MenuBar() {
       <MenuItem>
         <Tooltip label="Home" fontSize="md"  hasArrow placement="auto-start">
           <span>
-            <Icon as={BiHome} color="complementary" w={10} h={10} />
+            <Icon as={BiHome} color="primary" w={10} h={10} />
           </span>
         </Tooltip>
       </MenuItem>
@@ -41,21 +41,21 @@ export default function MenuBar() {
       <MenuItem>
         <Tooltip label="Check out my projects" fontSize="md" hasArrow placement="auto-start">
           <span>
-            <Icon as={DiCodeBadge} color="complementary" w={10} h={10} />
+            <Icon as={DiCodeBadge} color="primary" w={10} h={10} />
           </span>
         </Tooltip>
       </MenuItem>
       <MenuItem>
         <Tooltip label="Achievements" fontSize="md" hasArrow placement="auto-start">
           <span>
-            <Icon as={BiMedal} color="complementary" w={10} h={10} />
+            <Icon as={BiMedal} color="primary" w={10} h={10} />
           </span>
         </Tooltip>
       </MenuItem>
       <MenuItem>
         <Tooltip label="CV & Skills" fontSize="md" hasArrow placement="auto-start">
           <span>
-            <Icon as={HiOutlineAcademicCap} color="complementary" w={10} h={10} />
+            <Icon as={HiOutlineAcademicCap} color="primary" w={10} h={10} />
           </span>
         </Tooltip>
       </MenuItem>
